@@ -1,6 +1,8 @@
 package com.sales.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,8 +23,12 @@ public class CustomerController {
     }
     
     @RequestMapping(value="/captureFamilyIncomeDetails", method=RequestMethod.POST)
-    public Customer captureFamilyIncomeDetails(int familyIncome, int numberOfDependents) {
-        return customerService.captureFamilyIncomeDetails(familyIncome, numberOfDependents);
+    public ResponseEntity<?> captureFamilyIncomeDetails(int familyIncome, int numberOfDependents) {
+        if (familyIncome < 0 || numberOfDependents < 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Family income and number of dependents must be non-negative.");
+        }
+        
+        return ResponseEntity.ok(customerService.captureFamilyIncomeDetails(familyIncome, numberOfDependents));
     }
     
     @RequestMapping(value="/captureCRIFScore", method=RequestMethod.POST)
