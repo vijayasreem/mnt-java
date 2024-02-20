@@ -16,8 +16,8 @@ public class CustomerController {
     private CustomerService customerService;
     
     @RequestMapping(value="/captureCustomerDemographicData", method=RequestMethod.POST)
-    public Customer captureCustomerDemographicData(String customerName, int age, String gender, String address) {
-        return customerService.captureCustomerDemographicData(customerName, age, gender, address);
+    public Customer captureCustomerDemographicData(String customerName, int age, String gender, String address, String email) {
+        return customerService.captureCustomerDemographicData(customerName, age, gender, address, email);
     }
     
     @RequestMapping(value="/captureFamilyIncomeDetails", method=RequestMethod.POST)
