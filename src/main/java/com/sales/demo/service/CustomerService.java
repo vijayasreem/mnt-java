@@ -12,8 +12,8 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
     
-    public Customer captureCustomerDemographicData(String customerName, int age, String gender, String address) {
-        return customerRepository.findByCustomerNameAndAgeAndGenderAndAddress(customerName, age, gender, address);
+    public Customer captureCustomerDemographicData(String customerName, int age, String gender, String address, String email) {
+        return customerRepository.findByCustomerNameAndAgeAndGenderAndAddressAndEmail(customerName, age, gender, address, email);
     }
     
     public Customer captureFamilyIncomeDetails(int familyIncome, int numberOfDependents) {
