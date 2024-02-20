@@ -9,7 +9,7 @@ import com.sales.demo.model.Customer;
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
     
     //method to capture customer demographic data
-    Customer findByCustomerNameAndAgeAndGenderAndAddress(String customerName, int age, String gender, String address);
+    Customer findByCustomerNameAndAgeAndGenderAndAddressAndEmail(String customerName, int age, String gender, String address, String email);
     
     //method to capture family income details
     Customer findByFamilyIncomeAndNumberOfDependents(int familyIncome, int numberOfDependents);
@@ -18,7 +18,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     Customer findByCrifScore(int crifScore);
     
     //method to validate customer data
-    Customer findByCustomerNameAndAgeAndGenderAndAddressAndFamilyIncomeAndNumberOfDependentsAndCrifScore(String customerName, int age, String gender, String address, int familyIncome, int numberOfDependents, int crifScore);
+    Customer findByCustomerNameAndAgeAndGenderAndAddressAndFamilyIncomeAndNumberOfDependentsAndCrifScoreAndEmail(String customerName, int age, String gender, String address, int familyIncome, int numberOfDependents, int crifScore, String email);
     
     //method to generate an OTP for authentication
     Customer findByOTP(String OTP);
