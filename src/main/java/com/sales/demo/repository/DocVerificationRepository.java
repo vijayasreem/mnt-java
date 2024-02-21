@@ -11,14 +11,20 @@ public interface DocVerificationRepository {
 
     default void verifyIdentityAndAddress(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter your identity details:");
-
-        String identity = scanner.nextLine();
+        System.out.println("Please enter your Name:");
+        String name = scanner.nextLine();
+        
+        System.out.println("Please enter your Pan number:");
+        String panNumber = scanner.nextLine();
+        
         System.out.println("Please enter your address:");
-
         String address = scanner.nextLine();
 
-        if(identity.equals(address)){
+        // Assuming that the user details are stored in a database
+        // and can be fetched using a method getUserDetails(String name, String panNumber)
+        UserDetails userDetails = getUserDetails(name, panNumber);
+
+        if(userDetails != null && userDetails.getAddress().equals(address)){
             System.out.println("Identity and address verified. You are eligible for banking services!");
         } else {
             System.out.println("Document verification is incomplete. You are not eligible for banking services.");
@@ -44,5 +50,34 @@ public interface DocVerificationRepository {
     default void closeApp(){
         System.out.println("Thank you for using the app. Closing now...");
     }
+    
+    // Assuming that this method fetches the user details from the database
+    private UserDetails getUserDetails(String name, String panNumber) {
+        // Fetch the user details from the database using the provided name and panNumber
+        // Return the UserDetails object if found, else return null
+    }
+}
 
+class UserDetails {
+    private String name;
+    private String panNumber;
+    private String address;
+
+    public UserDetails(String name, String panNumber, String address) {
+        this.name = name;
+        this.panNumber = panNumber;
+        this.address = address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPanNumber() {
+        return panNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
 }
