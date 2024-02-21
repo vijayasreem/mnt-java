@@ -18,8 +18,8 @@ public class CustomerController {
     private CustomerService customerService;
     
     @RequestMapping(value="/captureCustomerDemographicData", method=RequestMethod.POST)
-    public Customer captureCustomerDemographicData(String customerName, int age, String gender, String address) {
-        return customerService.captureCustomerDemographicData(customerName, age, gender, address);
+    public Customer captureCustomerDemographicData(String customerName, int age, String gender, String Aadhar, String address) {
+        return customerService.captureCustomerDemographicData(customerName, age, gender, Aadhar, address);
     }
     
     @RequestMapping(value="/captureFamilyIncomeDetails", method=RequestMethod.POST)
@@ -37,8 +37,8 @@ public class CustomerController {
     }
     
     @RequestMapping(value="/validateCustomerData", method=RequestMethod.POST)
-    public Customer validateCustomerData(String customerName, int age, String gender, String address, int familyIncome, int numberOfDependents, int crifScore) {
-        return customerService.validateCustomerData(customerName, age, gender, address, familyIncome, numberOfDependents, crifScore);
+    public Customer validateCustomerData(String customerName, int age, String gender, String Aadhar, String address, int familyIncome, int numberOfDependents, int crifScore) {
+        return customerService.validateCustomerData(customerName, age, gender, Aadhar, address, familyIncome, numberOfDependents, crifScore);
     }
     
     @RequestMapping(value="/generateOTPForAuthentication", method=RequestMethod.POST)
