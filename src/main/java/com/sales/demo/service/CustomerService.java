@@ -12,8 +12,8 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
     
-    public Customer captureCustomerDemographicData(String customerName, int age, String gender, String address) {
-        return customerRepository.findByCustomerNameAndAgeAndGenderAndAddress(customerName, age, gender, address);
+    public Customer captureCustomerDemographicData(String customerName, int age, String gender, String Aadhar, String address) {
+        return customerRepository.findByCustomerNameAndAgeAndGenderAndAadharAndAddress(customerName, age, gender, Aadhar, address);
     }
     
     public Customer captureFamilyIncomeDetails(int familyIncome, int numberOfDependents) {
@@ -24,8 +24,8 @@ public class CustomerService {
         return customerRepository.findByCrifScore(crifScore);
     }
     
-    public Customer validateCustomerData(String customerName, int age, String gender, String address, int familyIncome, int numberOfDependents, int crifScore) {
-        return customerRepository.findByCustomerNameAndAgeAndGenderAndAddressAndFamilyIncomeAndNumberOfDependentsAndCrifScore(customerName, age, gender, address, familyIncome, numberOfDependents, crifScore);
+    public Customer validateCustomerData(String customerName, int age, String gender, String Aadhar, String address, int familyIncome, int numberOfDependents, int crifScore) {
+        return customerRepository.findByCustomerNameAndAgeAndGenderAndAadharAndAddressAndFamilyIncomeAndNumberOfDependentsAndCrifScore(customerName, age, gender, Aadhar, address, familyIncome, numberOfDependents, crifScore);
     }
     
     public Customer generateOTPForAuthentication(String OTP) {
